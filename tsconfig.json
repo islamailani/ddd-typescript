@@ -1,21 +1,15 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
-    "rootDir": "./",
-    "noEmit": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "pretty": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "lib": ["es6"],
-    "types": ["reflect-metadata"],
-    "module": "commonjs",
-    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "target": "esnext",
+    "noUnusedLocals": true,
+    "sourceMap": true,
+    "lib": ["esnext"],
+    "outDir": "dist/",
+    "baseUrl": "src/",
   },
-  "exclude": ["node_modules", "**/node_modules/*"]
+  "exclude": ["node_modules"]
 }
