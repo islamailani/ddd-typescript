@@ -1,7 +1,7 @@
 import { Container, ContainerModule } from 'inversify'
 
 // Interfaces
-import { LogTransport, LogTransportSymbol } from '../Logger/LogTransport'
+import { LogTransport, logTransportSymbol } from '../Logger/LogTransport'
 
 // Concretions
 import { ConsoleLogger } from '../Logger/ConsoleLogger'
@@ -12,9 +12,9 @@ import { WinstonLogger } from '../Logger/WinstonLogger'
 // Bind application dependencies
 const applicationDependencies = new ContainerModule((bind) => {
   // Interface -> Implementation
-  bind<LogTransport>(LogTransportSymbol).to(ConsoleLogger).whenTargetIsDefault()
-  bind<LogTransport>(LogTransportSymbol).to(EmojiLogger).whenTargetNamed('🙆')
-  bind<LogTransport>(LogTransportSymbol).to(WinstonLogger).whenTargetNamed('🙈')
+  bind<LogTransport>(logTransportSymbol).to(ConsoleLogger).whenTargetIsDefault()
+  bind<LogTransport>(logTransportSymbol).to(EmojiLogger).whenTargetNamed('🙆')
+  bind<LogTransport>(logTransportSymbol).to(WinstonLogger).whenTargetNamed('🙈')
 
   // Implementation binding
   bind<Logger>(Logger).toSelf().inSingletonScope()

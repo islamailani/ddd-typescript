@@ -3,4 +3,4 @@ export interface LogTransport {
   error(message: string): void
 }
 
-export const LogTransportSymbol = Symbol.for('LogTransport')
+export const logTransportSymbol = Symbol.for('LogTransport')
