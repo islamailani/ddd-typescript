@@ -3,9 +3,15 @@ import { LogTransport } from './LogTransport';
 
 @injectable()
 export class ConsoleLogger implements LogTransport {
+  constructor() {
+    console.log('console');
+  }
+  info(message: string) {
+    console.info(message)
+  }
 
-  log(message: string) {
-    console.log(message)
+  error(message: string) {
+    console.error(message)
   }
 
 }

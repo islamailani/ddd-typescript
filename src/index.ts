@@ -1,5 +1,7 @@
 import 'reflect-metadata';
-import { logger } from './ioc/ioc';
+import { logger } from './ioc/container';
 
-logger().log('Hello injected world')
+logger().info('This is an info message')
+
+logger().error('This is an error message')
 
