@@ -6,6 +6,7 @@ import { Logger, transports, config, LoggerInstance } from 'winston'
 
 @injectable()
 export class WinstonLogger implements LogTransport {
+
   private logger: LoggerInstance
 
   constructor() {
@@ -17,13 +18,14 @@ export class WinstonLogger implements LogTransport {
             const level = config.colorize(options.level, options.level.toUpperCase().padEnd(5))
             const timestamp = options.timestamp()
             const message = options.message
-            const meta = options.meta && Object.keys(options.meta).length ? `\n${JSON.stringify(options.meta, null, 4)}` : ''
+            const meta = options.meta && Object.keys(options.meta).length
+              ? `\n${JSON.stringify(options.meta, null, 4)}` : ''
 
             return `${level} ${chalk.gray(timestamp)} ${message} ${chalk.gray(meta)}`
-          }
-        })
-      ]
-    });
+          },
+        }),
+      ],
+    })
   }
 
   info(message: string) {

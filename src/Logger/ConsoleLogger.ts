@@ -1,11 +1,9 @@
-import { injectable } from 'inversify';
-import { LogTransport } from './LogTransport';
+import { injectable } from 'inversify'
+import { LogTransport } from './LogTransport'
 
 @injectable()
 export class ConsoleLogger implements LogTransport {
-  constructor() {
-    console.log('console');
-  }
+
   info(message: string) {
     console.info(message)
   }
@@ -13,5 +11,4 @@ export class ConsoleLogger implements LogTransport {
   error(message: string) {
     console.error(message)
   }
-
 }

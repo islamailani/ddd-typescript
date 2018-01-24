@@ -1,9 +1,5 @@
-import {
-  injectable,
-  inject,
-  named
-} from "inversify";
-import { LogTransport, LogTransportSymbol } from "./LogTransport";
+import { injectable, inject, named } from 'inversify'
+import { LogTransport, LogTransportSymbol } from './LogTransport'
 
 @injectable()
 export class Logger {

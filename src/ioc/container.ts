@@ -1,16 +1,16 @@
 import { Container, ContainerModule } from 'inversify'
 
 // Interfaces
-import { LogTransport, LogTransportSymbol } from '../Logger/LogTransport';
+import { LogTransport, LogTransportSymbol } from '../Logger/LogTransport'
 
 // Concretions
-import { ConsoleLogger } from '../Logger/ConsoleLogger';
-import { Logger } from '../Logger/Logger';
-import { EmojiLogger } from '../Logger/EmojiLogger';
-import { WinstonLogger } from '../Logger/WinstonLogger';
+import { ConsoleLogger } from '../Logger/ConsoleLogger'
+import { Logger } from '../Logger/Logger'
+import { EmojiLogger } from '../Logger/EmojiLogger'
+import { WinstonLogger } from '../Logger/WinstonLogger'
 
-// Bind dependencies
-const applicationDependencies = new ContainerModule(bind => {
+// Bind application dependencies
+const applicationDependencies = new ContainerModule((bind) => {
   // Interface -> Implementation
   bind<LogTransport>(LogTransportSymbol).to(ConsoleLogger).whenTargetIsDefault()
   bind<LogTransport>(LogTransportSymbol).to(EmojiLogger).whenTargetNamed('🙆')
@@ -25,7 +25,7 @@ const container = new Container()
 container.load(applicationDependencies)
 
 // Aliases
-const logger = () => container.get<Logger>(Logger);
+const logger = () => container.get<Logger>(Logger)
 
 export {
   container,
