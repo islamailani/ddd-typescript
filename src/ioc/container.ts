@@ -1,20 +1,20 @@
 import { Container, ContainerModule } from 'inversify'
+import { LogTransport, logTransportSymbol } from '../infrastructure/Logger/LogTransport';
+import { ConsoleLogger } from '../infrastructure/Logger/ConsoleLogger';
+import { EmojiLogger } from '../infrastructure/Logger/EmojiLogger';
+import { WinstonLogger } from '../infrastructure/Logger/WinstonLogger';
+import { Logger } from '../infrastructure/Logger/Logger';
 
 // Interfaces
-import { LogTransport, logTransportSymbol } from '../Logger/LogTransport'
 
 // Concretions
-import { ConsoleLogger } from '../Logger/ConsoleLogger'
-import { Logger } from '../Logger/Logger'
-import { EmojiLogger } from '../Logger/EmojiLogger'
-import { WinstonLogger } from '../Logger/WinstonLogger'
 
 // Bind application dependencies
 const applicationDependencies = new ContainerModule((bind) => {
   // Interface -> Implementation
-  bind<LogTransport>(logTransportSymbol).to(ConsoleLogger).whenTargetIsDefault()
+  bind<LogTransport>(logTransportSymbol).to(WinstonLogger).whenTargetIsDefault()
+  bind<LogTransport>(logTransportSymbol).to(ConsoleLogger).whenTargetNamed('console')
   bind<LogTransport>(logTransportSymbol).to(EmojiLogger).whenTargetNamed('🙆')
-  bind<LogTransport>(logTransportSymbol).to(WinstonLogger).whenTargetNamed('🙈')
 
   // Implementation binding
   bind<Logger>(Logger).toSelf().inSingletonScope()
@@ -25,9 +25,6 @@ const container = new Container()
 container.load(applicationDependencies)
 
 // Aliases
-const logger = () => container.get<Logger>(Logger)
+export const logger = () => container.get<Logger>(Logger)
 
-export {
-  container,
-  logger,
-}
+export { container }

@@ -1,11 +1,13 @@
-import { injectable, inject, named } from 'inversify'
+import { injectable, inject } from 'inversify'
 import { LogTransport, logTransportSymbol } from './LogTransport'
 
 @injectable()
 export class Logger {
 
-  @inject(logTransportSymbol) @named('🙈')
-  private transport: LogTransport
+  constructor (
+    @inject(logTransportSymbol)
+    private transport: LogTransport
+  ) {}
 
   info(message: string) {
     this.transport.info(message)
