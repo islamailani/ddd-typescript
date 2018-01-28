@@ -1,11 +1,11 @@
 import { injectable } from 'inversify'
-import { LogTransport } from './LogTransport'
+import { Loggable } from './Loggable'
 
 import chalk from 'chalk'
 import { Logger, transports, config, LoggerInstance } from 'winston'
 
 @injectable()
-export class WinstonLogger implements LogTransport {
+export class WinstonLogger implements Loggable {
 
   private logger: LoggerInstance
 

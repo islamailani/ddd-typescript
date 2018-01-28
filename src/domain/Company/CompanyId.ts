@@ -1,12 +1,18 @@
-import { ValueObject } from '../ValueObject'
-import { IdentifiesAggregate } from '../IdentifiesAggregate'
+// import { ValueObject } from '../ValueObject'
+// import { IdentifiesAggregate } from '../IdentifiesAggregate'
+import { AbstractIdentifier } from '../AbstractIdentifier';
+import { randomBytes } from 'crypto';
 
-export class CompanyId implements ValueObject, IdentifiesAggregate {
+export const generateCompanyId = () => {
+  return new CompanyId(randomBytes(20).toString('hex'))
+}
+
+export class CompanyId extends AbstractIdentifier{
 
 
 }
 
-const id = CompanyId.generate()
-const id2 = CompanyId.generate()
+const id = generateCompanyId()
+const id2 = generateCompanyId()
 
 id.equals(id2)

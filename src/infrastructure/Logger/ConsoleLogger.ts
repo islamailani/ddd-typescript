@@ -1,8 +1,8 @@
 import { injectable } from 'inversify'
-import { LogTransport } from './LogTransport'
+import { Loggable } from './Loggable'
 
 @injectable()
-export class ConsoleLogger implements LogTransport {
+export class ConsoleLogger implements Loggable {
 
   info(message: string) {
     console.info(message)

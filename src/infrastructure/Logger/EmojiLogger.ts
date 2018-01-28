@@ -1,8 +1,8 @@
 import { injectable } from 'inversify'
-import { LogTransport } from './LogTransport'
+import { Loggable } from './Loggable'
 
 @injectable()
-export class EmojiLogger implements LogTransport {
+export class EmojiLogger implements Loggable {
 
   info(message: string) {
     console.log('🙆  ' + message)

@@ -1,10 +1,9 @@
-import { LogTransport } from './LogTransport'
-import { Logger } from './Logger'
+import { Loggable } from './Loggable'
 
 describe('Logger', () => {
   it('it should call the transports info method with the correct arguments', () => {
 
-    const mockTransport = jest.fn<LogTransport>(() => ({
+    const mockTransport = jest.fn<Loggable>(() => ({
       info: jest.fn(),
     }));
 
@@ -18,7 +17,7 @@ describe('Logger', () => {
 
   it('it should call the transports error method with the correct arguments', () => {
 
-    const mockTransport = jest.fn<LogTransport>(() => ({
+    const mockTransport = jest.fn<Loggable>(() => ({
       error: jest.fn(),
     }));
 
