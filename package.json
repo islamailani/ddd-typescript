@@ -14,7 +14,10 @@
     "typecheck": "tsc"
   },
   "jest": {
-    "testMatch": [ "**/__tests__/**/*.(ts|js)?(x)", "**/?(*.)(spec|test).(js|ts)?(x)" ],
+    "testMatch": [
+      "**/__tests__/**/*.(ts|js)?(x)",
+      "**/?(*.)(spec|test).(js|ts)?(x)"
+    ],
     "setupFiles": [
       "./jest.setup.js"
     ],
@@ -36,6 +39,7 @@
     "babel-core": "^7.0.0-bridge.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.40",
     "@types/chalk": "^2.2.0",
     "@types/jest": "^21.1.8",
     "@types/lodash": "^4.14.95",
@@ -53,10 +57,12 @@
     "typescript-babel-jest": "^1.0.5"
   },
   "dependencies": {
+    "@types/uuid": "^3.4.3",
     "chalk": "^2.3.0",
     "inversify": "^4.9.0",
     "lodash": "^4.17.4",
     "reflect-metadata": "^0.1.12",
+    "uuid": "^3.2.1",
     "winston": "^2.4.0"
   }
 }
