@@ -4,6 +4,10 @@ export abstract class Identifier {
 
     protected id: string
 
+    public constructor() {
+        this.id = Identifier.generate()
+    }
+
     public static generate() {
         return uuid()
     }
