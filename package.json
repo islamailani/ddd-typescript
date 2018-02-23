@@ -59,6 +59,7 @@
   "dependencies": {
     "@types/uuid": "^3.4.3",
     "chalk": "^2.3.0",
+    "i18n-iso-countries": "^3.6.0",
     "inversify": "^4.9.0",
     "lodash": "^4.17.4",
     "reflect-metadata": "^0.1.12",
