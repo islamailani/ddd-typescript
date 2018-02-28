@@ -1,4 +1,4 @@
-import { FullName } from '../access/FullName'
+import { FullName } from '../identity/FullName'
 
 it('should create a full name with from mutiple arguments.', () => {
     const fullname = new FullName('Rick', 'Lancee')

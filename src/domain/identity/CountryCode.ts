@@ -1,4 +1,4 @@
-import { isValid, getAlpha2Codes } from 'i18n-iso-countries'
+import { isValid, getAlpha2Codes, getName } from 'i18n-iso-countries'
 import { ValueObject } from '../ValueObject'
 import { IllegalArgumentException } from '../IllegalArgumentException'
 
@@ -17,6 +17,10 @@ export class CountryCode implements ValueObject {
 
     getAlpha2() {
         return this.alpha2
+    }
+
+    getCountryName() {
+        return getName(this.alpha2, 'en')
     }
 
     equals(other: CountryCode) {

@@ -1,4 +1,4 @@
-import { UserId } from '../access/UserId'
+import { UserId } from '../identity/UserId'
 
 jest.mock('uuid/v4', () => () => 'foo')
 

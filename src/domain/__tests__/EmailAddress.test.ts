@@ -1,5 +1,5 @@
 
-import { EmailAddress } from '../access/EmailAddress'
+import { EmailAddress } from '../identity/EmailAddress'
 import { IllegalArgumentException } from '../IllegalArgumentException'
 
 it('should throw when passing in a empty string', () => {

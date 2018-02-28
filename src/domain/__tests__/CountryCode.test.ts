@@ -1,5 +1,5 @@
 
-import { CountryCode } from '../access/CountryCode'
+import { CountryCode } from '../identity/CountryCode'
 import { IllegalArgumentException } from '../IllegalArgumentException'
 
 it('should throw when passing in a invalid country code', () => {
@@ -23,4 +23,10 @@ it('should not equal an email with a different value.', () => {
     const code2 = new CountryCode('us')
 
     expect(code1.equals(code2)).toBe(false)
+})
+
+it('should be able to return the fullname of the country', () => {
+    const theNetherlands = new CountryCode('nl')
+
+    expect(theNetherlands.getCountryName()).toBe('Netherlands')
 })
