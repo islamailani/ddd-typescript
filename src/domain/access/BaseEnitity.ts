@@ -1,5 +1,7 @@
 import { CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm'
+import { injectable } from 'inversify'
 
+@injectable()
 export abstract class BaseEntity {
 
     @PrimaryGeneratedColumn()
