@@ -1,5 +1,5 @@
 import { ValueObject } from '../ValueObject'
-import { CountryCode } from './CountryCode';
+import { CountryCode } from './CountryCode'
 
 export class Address implements ValueObject {
 
@@ -52,7 +52,7 @@ export class Address implements ValueObject {
         }
     }
 
-    equals(other: Address) {
+    public equals(other: Address) {
         return (
             this.country.equals(other.country) &&
             this.nameLine === other.nameLine &&

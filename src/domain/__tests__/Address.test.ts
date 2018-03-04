@@ -1,11 +1,11 @@
 
 import { Address } from '../identity/Address'
 import { IllegalArgumentException } from '../IllegalArgumentException'
-import { CountryCode } from '../identity/CountryCode';
+import { CountryCode } from '../identity/CountryCode'
 
 it('should throw when passing in a invalid country code', () => {
     const createAddress = () => {
-        new Address(
+        return new Address(
             new CountryCode('foo'),
             'Rick Lancee',
             'Lifely B.V.',
@@ -16,8 +16,8 @@ it('should throw when passing in a invalid country code', () => {
         )
     }
 
-    expect(createAddress).toThrowError('"foo" is not a valid Alpha2 country');
-    expect(createAddress).toThrowError(IllegalArgumentException);
+    expect(createAddress).toThrowError('"foo" is not a valid Alpha2 country')
+    expect(createAddress).toThrowError(IllegalArgumentException)
 })
 
 it('should be able to return contructed name parts', () => {
@@ -66,7 +66,6 @@ it('should expect two same addresses to be the same', () => {
 
     expect(address1.equals(address2)).toBe(true)
 })
-
 
 it('should expect two different addresses to not be the same', () => {
     const address1 = new Address(

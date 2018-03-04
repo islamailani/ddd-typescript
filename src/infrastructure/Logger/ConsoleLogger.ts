@@ -4,11 +4,13 @@ import { Loggable } from './Loggable'
 @injectable()
 export class ConsoleLogger implements Loggable {
 
-  info(message: string) {
-    console.info(message)
-  }
+    public info(message: string) {
+        // tslint:disable-next-line:no-console
+        console.info(message)
+    }
 
-  error(message: string) {
-    console.error(message)
-  }
+    public error(message: string) {
+        // tslint:disable-next-line:no-console
+        console.error(message)
+    }
 }

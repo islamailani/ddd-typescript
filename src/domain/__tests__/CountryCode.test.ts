@@ -4,11 +4,11 @@ import { IllegalArgumentException } from '../IllegalArgumentException'
 
 it('should throw when passing in a invalid country code', () => {
     const createCountryCode = () => {
-        new CountryCode('foo')
+        return new CountryCode('foo')
     }
 
-    expect(createCountryCode).toThrowError('"foo" is not a valid Alpha2 country');
-    expect(createCountryCode).toThrowError(IllegalArgumentException);
+    expect(createCountryCode).toThrowError('"foo" is not a valid Alpha2 country')
+    expect(createCountryCode).toThrowError(IllegalArgumentException)
 })
 
 it('should equal an email with the same value.', () => {

@@ -15,15 +15,15 @@ export class CountryCode implements ValueObject {
         this.alpha2 = alpha2
     }
 
-    getAlpha2() {
+    public getAlpha2() {
         return this.alpha2
     }
 
-    getCountryName() {
+    public getCountryName() {
         return getName(this.alpha2, 'en')
     }
 
-    equals(other: CountryCode) {
+    public equals(other: CountryCode) {
         return this.alpha2 === other.alpha2
     }
 }

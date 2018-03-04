@@ -13,7 +13,7 @@ export class FullName implements ValueObject {
     }
 
     public equals(other: FullName) {
-        return other.getFullName().toLowerCase() === 
+        return other.getFullName().toLowerCase() ===
             this.getFullName().toLowerCase()
     }
 }

@@ -15,7 +15,7 @@ export class ContactInformation implements ValueObject{
         this.phoneNumber = phoneNumber
     }
 
-    equals(other: ContactInformation) {
+    public equals(other: ContactInformation) {
         return (
             this.email.equals(other.email) &&
             this.phoneNumber === other.phoneNumber

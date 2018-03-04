@@ -4,11 +4,13 @@ import { Loggable } from './Loggable'
 @injectable()
 export class EmojiLogger implements Loggable {
 
-  info(message: string) {
-    console.log('🙆  ' + message)
-  }
+    public info(message: string) {
+        // tslint:disable-next-line:no-console
+        console.log(`🙆  ${message}`)
+    }
 
-  error(message: string) {
-    console.log('🚫  ' + message)
-  }
+    public error(message: string) {
+        // tslint:disable-next-line:no-console
+        console.log(`🚫  ${message}`)
+    }
 }

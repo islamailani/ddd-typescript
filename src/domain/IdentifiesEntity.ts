@@ -12,7 +12,7 @@ export abstract class IdentifiesEntity {
         return uuid()
     }
 
-    getId() {
+    public getId() {
         return this.id
     }
 }

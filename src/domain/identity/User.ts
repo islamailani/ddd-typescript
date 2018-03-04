@@ -1,16 +1,15 @@
 import { Entity } from '../AbstractEntity'
 import { UserId } from './UserId'
-import { PersonId } from './PersonId'
+// import { PersonId } from './PersonId'
 
 export class User extends Entity {
     protected id: UserId
-    private personId: PersonId
+    // private personId: PersonId
 
-    private login: string
-    private password: string
+    // private login: string
+    // private password: string
 
-    constructor() {
+    // constructor() {
 
-    }
+    // }
 }
-

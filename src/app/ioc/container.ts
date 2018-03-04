@@ -4,7 +4,7 @@ import { Container } from 'inversify'
 import {
   provider as logProvider,
   alias as logger
-} from '../infrastructure/Logger/LoggerServiceProvider'
+} from 'infrastructure/Logger/LoggerServiceProvider'
 
 const container = new Container()
 
