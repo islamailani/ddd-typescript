@@ -1,17 +1,18 @@
 import 'app/core/bootstrap'
 
 import { db } from 'app/core/bootstrap/db'
+import { container } from 'app/ioc/container'
+import { UserService } from 'domain/access/services/UserService'
 
-import { container, logger } from 'app/ioc/container'
-import { User } from 'domain/access/User'
-
-; (async () => {
+(async () => {
     await db()
 
-    const user = container.get(User)
+    const userService = container.get(UserService)
 
-    await user.setPassword('test')
+    // const newAdmin = await userService.registerNewAdminUser('example@lifely.nl', 'test')
+    // console.log(newAdmin)
 
-    logger().info(user.password)
+    const verifiedUser = await userService.verifyUserWithCredentials('example@lifely.nl', 'test')
+    console.log(verifiedUser)
 
 })()

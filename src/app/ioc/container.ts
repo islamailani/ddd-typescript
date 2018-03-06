@@ -1,12 +1,14 @@
 import { Container } from 'inversify'
 
-// Import service providers
+// Import framework service providers
 import {
   provider as logProvider,
   alias as logger
 } from 'infrastructure/Logger/LoggerServiceProvider'
-import { User } from 'domain/access/User'
-import { AuthService } from 'domain/access/AuthService'
+
+// Services to bind
+import { AuthService } from 'domain/access/services/AuthService'
+import { UserService } from 'domain/access/services/UserService'
 
 const container = new Container()
 
@@ -14,11 +16,13 @@ container.load(
   logProvider
 )
 
-container.bind<User>(User).toSelf()
 container.bind<AuthService>(AuthService)
     .toSelf()
     .inSingletonScope()
 
+container.bind<UserService>(UserService)
+    .toSelf()
+    .inSingletonScope()
 
 export {
   container,

@@ -14,15 +14,6 @@ export class AuthService {
     }
 
     /**
-     * Checks if the password reset token has expired.
-     */
-    public isPasswordTokenExpired(passwordResetToken: string) {
-        const expiresAt = parseInt(passwordResetToken.substring(0, passwordResetToken.indexOf(':')), 10)
-
-        return expiresAt > new Date().getTime()
-    }
-
-    /**
      * Checks if a given password matches the user's password.
      *
      * @param password the unhashed password to check.

@@ -1,6 +1,10 @@
 // import { log } from 'infrastructure/risio'
 import { Connection, createConnection } from 'typeorm'
-import { logger } from 'app/ioc/container'
+import { logger, container } from 'app/ioc/container'
+import { UserRepository } from 'infrastructure/repositories/UserRepository'
+import { RoleRepository } from 'infrastructure/repositories/RoleRepository'
+import { Role, Roles } from 'domain/access/Role'
+import { UserService } from 'domain/access/services/UserService'
 
 let instance: Connection = null
 
@@ -10,21 +14,24 @@ export const db = async (): Promise<Connection> => {
             instance = await createConnection()
             logger().info(`Connected to the database`)
 
-            // if (await getUserRepository().count() === 0) {
-            //     // log().info('No users were found, adding admin@example.com admin')
+            const userRepository = instance.getCustomRepository(UserRepository)
 
-            //     const adminRole = Role.fromType(Roles.Admin)
-            //     const userRole = Role.fromType(Roles.User)
+            if (await userRepository.count() === 0) {
 
-            //     await getRoleRepository().save(adminRole)
-            //     await getRoleRepository().save(userRole)
+                logger().info('No users were found, adding admin@example.com admin')
+                const roleRepository = instance.getCustomRepository(RoleRepository)
 
-            //     const adminUser = await userService.registerNewAdminUser('setup@lifely.nl', 'test')
+                const adminRole = Role.fromType(Roles.Admin)
+                const userRole = Role.fromType(Roles.User)
 
-            //     await getUserRepository().save(adminUser)
-            // }
+                await roleRepository.save(adminRole)
+                await roleRepository.save(userRole)
+
+                await container.get(UserService)
+                    .registerNewAdminUser('setup@lifely.nl', 'test')
+            }
         } catch (err) {
-            logger().error(`Cannot connect to database. Is the database running? Error: ${err.message}`)
+            logger().error(`Cannot connect to database. Is the database running? Error: ${err.stack}`)
             process.exit(1)
         }
     }
